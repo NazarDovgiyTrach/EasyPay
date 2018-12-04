@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Template for HTML email with inline image</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>Hello <span th:text="${userFullName}"></span> </h3>
+    <p>You forgot to send us new counter value</p>
+    <hr>
+    <p>Service: <b th:text="${serviceName}"></b></p>
+    <p>Address: <b th:text="${address}"></b></p>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/resources/images/logo.png" type="image/png" />
+    <title>EasyPay :: Login</title>
+    <!-- Vendor CSS -->
+    <link href="/resources/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/nprogress.css" rel="stylesheet" type="text/css">
+     <!--Custom CSS -->
+    <link href="/resources/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/authorization-stylesheet.css" type="text/css">
+    <link href="/resources/css/pnotify/pnotify.css" rel="stylesheet">
+    <link href="/resources/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/registrationStyle.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-social.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/loginStyle.css" type="text/css">
+</head>
+
+<body class="login">
+    <div class="container row">
+        <div class="login_wrapper">
+            <div class="form login_form">
+                <section class="login_content">
+                    <form method="post" action="/authorization" id="loginForm">
+                        <h1 data-locale-item="login"></h1>
+                        <div class="form-group">
+                            <input required type="email" name="email" id="email" data-locale-pr="email" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <input required type="password" name="password" id="password" data-locale-pr="password" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn btn-success pull-left" id="Login_button" data-locale-value="login">
+                        </div>
+                        <div class="form-group">
+                            <a class="reset_pass" href="forgotPasswordPage" data-locale-item="lostYourPassword"></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="login-or">
+                            <hr class="hr-or">
+                            <span class="span-or" data-locale-item="or"></span>
+                        </div> 
+                        <div class="col">
+                            <div class="col-md-6">
+                                <div class="form-group text-center">
+                                    <a class="customButton" href="/oauth2/authorization/google">
+                                        <span class="fa fa-google"></span> Google
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group text-center">
+                                    <a class="customButton" href="/oauth2/authorization/facebook">
+                                        <span class="fa fa-facebook"></span> Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <span class="change_link" data-locale-item="newToSite"></span>
+                            <a href="/registrationPage" data-locale-item="createAccount"></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <div>
+                            <h1><img src="/resources/images/logo.png" height="25" width="25"> EasyPay</h1>
+                            <p><a href="?lang=en">EN</a> <a href="?lang=ua" >UA</a></p>
+                            <p>&copy;2018 <span data-locale-item="copyright"></span> <a href="https://gitlab.com/nromanen/ch-067">Ch-067</a></p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="hide">
+    </div>
+
+    <!-- Start Modal-->
+    <div class="modal fade" id="message-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="message-text"></h4>
+                </div>
+                <div class="modal-footer text-center">
+                    <a id="redirect-btn" type="button" class="btn btn-primary  no-margin" data-locale-item="modalReactivateBtn"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal-->
+
+    <!-- Vendor JS -->
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/popper.min.js"></script>
+    <script src="/resources/js/bootstrap.js"></script>
+    <script src="/resources/js/fastclick.js"></script>
+    <script src="/resources/js/nprogress.js"></script>
+    <script src="/resources/js/bootstrap-progressbar.js"></script>
+    <!-- Custom JS -->
+    <script src="/resources/js/custom.js"></script>
+    <script src="/resources/js/pnotify/pnotify.js"></script>
+    <script src="/resources/js/checkToken.js"></script>
+    <script src="/resources/js/i18n.js"></script>
+    <script src="/resources/js/login.js"></script>
+    <script src="/resources/js/clean-session-storage.js"></script>
+
+</body>
+
+</html>

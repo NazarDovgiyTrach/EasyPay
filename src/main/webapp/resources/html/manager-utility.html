@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/resources/images/logo.png" type="image/png" />
+        <title>EasyPay :: Utility</title>
+        <!-- Vendor CSS -->
+        <link href="/resources/css/bootstrap.css" rel="stylesheet">
+        <link href="/resources/css/font-awesome.css" rel="stylesheet">
+        <link href="/resources/css/nprogress.css" rel="stylesheet">
+        <link href="/resources/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+        <link href="/resources/css/icheck/flat/green.css" rel="stylesheet">
+        <link href="/resources/css/bootstrap-datepicker.css" rel="stylesheet">
+        <!-- Notife CSS -->
+        <link href="/resources/css/pnotify/pnotify.css" rel="stylesheet">
+        <link href="/resources/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/resources/css/custom.css" rel="stylesheet">
+        <link href="/resources/css/utility-price-manager.css" rel="stylesheet">
+        <link href="/resources/css/nav-bar.css" rel="stylesheet">
+    </head>
+    <body class="nav-md">
+        <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/home" class="site_title"><img src="/resources/images/logo.png"> <span>EasyPay</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    </div>
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden" id="user-menu-header" >
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img  alt="" id="user-avatar-header">
+                                    <span id="display-name"></span>
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="/profile" data-locale-item="profile"></a></li>
+                                    <li><a id="dropdown-menu-logOut" href="/logout"><i class="fa fa-sign-out pull-right"></i></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3 data-locale-item="utility"></h3>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2 id="service_name_and_address"></h2>
+                                    <div class="clearfix"></div>
+                                    <div class="text-danger" id="utility_info"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div id="tabs" class="" role="tabpanel" data-example-id="togglable-tabs">
+                                            <ul class="nav nav-tabs bar_tabs" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true" data-locale-item="utilityPrice"></a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#tab_content2" role="tab" id="tab2" data-toggle="tab" aria-expanded="false" data-locale-item="chart"></a>
+                                                </li>
+                                            </ul>
+
+                                            <div id="myTabContent" class="tab-content">
+                                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                                    <div class="pull-left col-md-6">
+                                                        <p id="service_price"></p>
+                                                        <p id="service_last_activation_date"></p><br>
+                                                        <div class="pull-left">
+                                                            <button id="price_form_btn" type="button" class="btn btn-info btn-sm text-uppercase" data-locale-item="setNewPrice">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="pull-right col-md-6">
+                                                        <p id="future_price"></p>
+                                                        <p id="activation_date"></p><br>
+                                                        <div class="pull-left">
+                                                            <button id="future_price_form_btn" type="button" class="btn btn-info btn-sm text-uppercase" data-locale-item="setFuturePrice">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <br><br>
+
+                                                    <div id="price_div">
+                                                        <h3 class="text-center" data-locale-item="updateCurrentPriceNow"></h3>
+                                                        <form id="price_form">
+                                                            <div class="form-group">
+                                                                <label for="new_price_value" data-locale-item="enterPrice"></label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-usd">
+                                                                        </span>
+                                                                    </span>
+                                                                    <input type="number" step="0.01" min="0.01" class="form-control" id="new_price_value" data-locale-pr="typeHerePlaceHolder" required>
+                                                                </div>
+                                                            </div><br>
+                                                            <button type="submit" class="btn btn-success" data-locale-item="applyButton"></button>
+                                                        </form>
+                                                    </div>
+
+                                                    <div id="future_price_div">
+                                                        <h3 class="text-center" data-locale-item="priceOnDate"></h3>
+                                                        <form id="future_price_form">
+                                                            <div class="form-group">
+                                                                <label for="future_price_value" data-locale-item="enterPrice"></label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-usd">
+                                                                        </span>
+                                                                    </span>
+                                                                    <input type="number" step="0.01" min="0.01" class="form-control" id="future_price_value" data-locale-pr="typeHerePlaceHolder" required>
+                                                                </div>
+                                                                <label for="future_price_value" data-locale-item="pickDate"></label>
+                                                                <div class="input-group date" data-provide="datepicker">
+                                                                    <div class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-th"></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="futurePriceDate" id="future_price_date" data-locale-pr="pickHere" required>
+                                                                </div>
+                                                                <div class="text-info" data-locale-item="dateInfo">
+                                                                </div>
+                                                            </div><br>
+                                                            <button type="submit" class="btn btn-success" data-locale-item="applyButton"></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                                    <div class="choose-chart-dates">
+                                                        <form id="chart_date_form">
+                                                            <div class="form-group">
+                                                                <h4 data-locale-item="chooseDates"></h4>
+                                                                <div class="input-group input-daterange">
+                                                                    <input type="text" id="start_date" class="form-control" data-locale-pr="startDate">
+                                                                    <div class="input-group-addon" data-locale-item="to"></div>
+                                                                    <input type="text" id="target_date" class="form-control" data-locale-pr="targetDate">
+                                                                </div>
+                                                                <div class="text-danger" id="price_history_info"></div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                        <div id="no_price_history">
+                                                        </div>
+                                                        <canvas id="canvas"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Powered by <a href="https://gitlab.com/nromanen/ch-067">Ch-067</a> © 2018
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+        <!-- Vendor JS -->
+        <script src="/resources/js/jquery.js"></script>
+        <script src="/resources/js/popper.min.js"></script>
+        <script src="/resources/js/bootstrap.js"></script>
+        <script src="/resources/js/fastclick.js"></script>
+        <script src="/resources/js/nprogress.js"></script>
+        <script src="/resources/js/bootstrap-progressbar.js"></script>
+        <script src="/resources/js/icheck.js"></script>
+        <script src="/resources/js/bootstrap-datepicker.min.js"></script>
+        <!-- Notife JS -->
+        <script src="/resources/js/pnotify/pnotify.js"></script>
+        <!-- Chart JS -->
+        <script src="/resources/js/chart.bundle.js"></script>
+        <!-- Custom JS -->
+        <script src="/resources/js/custom.js"></script>
+        <script src="/resources/js/i18n.js"></script>
+        <script charset="UTF-8" src="/resources/js/utility-price-manager.js"></script>
+        <script charset="UTF-8" src="/resources/js/utility-price-manager-chart.js"></script>
+        <script src="/resources/js/nav-bar.js"></script>
+
+    </body>
+</html>

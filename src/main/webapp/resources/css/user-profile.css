@@ -1,0 +1,24 @@
+#image-editor{
+    margin-bottom: 2rem;
+    display: flex
+}
+
+#preview-panel{
+    position: relative;
+}
+#preview-panel div{
+    margin-top: 2rem;
+}
+
+#image-res button{
+    margin-top: 2rem;
+}
+
+#image-from-file{
+    max-width: 100%;
+    height: auto;
+}
+
+.error-label{
+    color: #E74C3C;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/resources/images/logo.png" type="image/png" />
+    <title>EasyPay ::Rate Clients</title>
+    <!-- Notife CSS -->
+    <link href="/resources/css/pnotify/pnotify.css" rel="stylesheet">
+    <link href="/resources/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+    <!-- Vendor CSS -->
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="/resources/css/font-awesome.css" rel="stylesheet">
+    <link href="/resources/css/nprogress.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <link href="/resources/css/icheck/flat/green.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-rating.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/resources/css/custom.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="/" class="site_title"><img src="/resources/images/logo.png"> <span>EasyPay</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                </div>
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden" id="user-menu-header" >
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img  alt="" id="user-avatar-header">
+                                <span id="display-name"></span>
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="/profile" data-locale-item="profile">Profile</a></li>
+                                <li><a href="/logout" id="dropdown-menu-logOut"><i class="fa fa-sign-out pull-right"></i></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="vertical-center hide" id="loader">
+                <div class="loader center-margin"></div></div>
+            <div class="content">
+
+                <div class="page-title">
+                    <div class="w_55 title_left">
+                        <h2 data-locale-item="rateInspectorsLine"></h2>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h3 data-locale-item="inspectors"></h3>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <table class="table table-hover schedule text-justify" id="user-list-rating">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col" data-locale-item="name" class="w_20"></th>
+                                                <th scope="col" data-locale-item="utility" class="w_20"></th>
+                                                <th scope="col" data-locale-item="rating" class="w_20"></th>
+                                                <th scope="col" data-locale-item="rate" class="w_20"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="row text-center">
+                                        <ul class="pagination" id="rating-pagination"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Powered by <a href="https://gitlab.com/nromanen/ch-067">Ch-067</a> © 2018
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- Vendor JS -->
+<script src="/resources/js/jquery.js"></script>
+<script src="/resources/js/popper.min.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/fastclick.js"></script>
+<script src="/resources/js/nprogress.js"></script>
+<script src="/resources/js/bootstrap-progressbar.js"></script>
+<script src="/resources/js/icheck.js"></script>
+<script src="/resources/js/bootstrap-select.js"></script>
+<script src="/resources/js/bootstrap-rating.js"></script>
+
+
+<!-- Custom JS -->
+<script src="/resources/js/custom.js"></script>
+<script src="/resources/js/rating.js"></script>
+<!-- Notife JS -->
+<script src="/resources/js/pnotify/pnotify.js"></script>
+<script src="/resources/js/jquery.twbsPagination.js"></script>
+<script src="/resources/js/nav-bar.js"></script>
+<!-- Localization -->
+<script src="/resources/js/i18n.js"></script>
+</body>
+
+</html>

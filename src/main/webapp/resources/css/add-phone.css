@@ -1,0 +1,11 @@
+body {
+	background: #F7F7F7;
+}
+
+#phoneErr {
+    color: red;
+}
+
+.row {
+	margin-top:  10rem;
+}

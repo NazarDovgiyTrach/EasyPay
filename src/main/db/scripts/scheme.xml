@@ -1,0 +1,474 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="Bear (generated)" id="1536074537109-1">
+        <createSequence sequenceName="address_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-2">
+        <createSequence sequenceName="city_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-3">
+        <createSequence sequenceName="counter_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-4">
+        <createSequence sequenceName="debt_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-5">
+        <createSequence sequenceName="flat_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-6">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-7">
+        <createSequence sequenceName="house_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-8">
+        <createSequence sequenceName="new_price_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-9">
+        <createSequence sequenceName="payments_history_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-10">
+        <createSequence sequenceName="price_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-11">
+        <createSequence sequenceName="rating_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-12">
+        <createSequence sequenceName="rating_list_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-13">
+        <createSequence sequenceName="region_sequence_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-14">
+        <createSequence sequenceName="schedules_history_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-15">
+        <createSequence sequenceName="schedules_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-16">
+        <createSequence sequenceName="unscheduled_addresses_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-17">
+        <createSequence sequenceName="user_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-18">
+        <createSequence sequenceName="utility_item_id_seq"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-19">
+        <createTable tableName="addresses">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="addresses_pkey"/>
+            </column>
+            <column name="is_active" type="BOOLEAN"/>
+            <column name="lat" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lng" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city_id" type="BIGINT"/>
+            <column name="flat_id" type="BIGINT"/>
+            <column name="house_id" type="BIGINT"/>
+            <column name="region_id" type="BIGINT"/>
+            <column name="street_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-20">
+        <createTable tableName="city">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="city_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-21">
+        <createTable tableName="counters">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="counters_pkey"/>
+            </column>
+            <column name="is_active" type="BOOLEAN"/>
+            <column name="current_value" type="BIGINT"/>
+            <column name="is_fixed" type="BOOLEAN"/>
+            <column name="last_updated" type="date"/>
+            <column name="old_value" type="BIGINT"/>
+            <column name="address_id" type="BIGINT"/>
+            <column name="debt_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-22">
+        <createTable tableName="debts">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="debts_pkey"/>
+            </column>
+            <column name="last_counter_reminder_send" type="date"/>
+            <column name="last_debt_reminder_send" type="date"/>
+            <column name="last_paid" type="date"/>
+            <column name="value" type="FLOAT8"/>
+            <column name="utility_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-23">
+        <createTable tableName="email_token">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="email_token_pkey"/>
+            </column>
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-24">
+        <createTable tableName="flat">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="flat_pkey"/>
+            </column>
+            <column name="number" type="VARCHAR(255)"/>
+            <column name="house_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-25">
+        <createTable tableName="house">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="house_pkey"/>
+            </column>
+            <column name="number" type="VARCHAR(255)"/>
+            <column name="street_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-26">
+        <createTable tableName="new_prices">
+            <column name="new_price_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="new_prices_pkey"/>
+            </column>
+            <column name="activation_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="new_price" type="FLOAT8"/>
+            <column name="current_price_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-27">
+        <createTable tableName="payments_histories">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="payments_histories_pkey"/>
+            </column>
+            <column name="checkpath" type="VARCHAR(200)"/>
+            <column name="google_drive_file_id" type="VARCHAR(255)"/>
+            <column name="pay_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_sum" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="utility_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-28">
+        <createTable tableName="prices">
+            <column name="price_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="prices_pkey"/>
+            </column>
+            <column name="active" type="BOOLEAN"/>
+            <column name="date" type="date"/>
+            <column name="price" type="FLOAT8"/>
+            <column name="utility_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-29">
+        <createTable tableName="rating">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="rating_pkey"/>
+            </column>
+            <column name="rating" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-30">
+        <createTable tableName="rating_list_item">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="rating_list_item_pkey"/>
+            </column>
+            <column name="rating_value" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rater_user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-31">
+        <createTable tableName="region">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="region_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-32">
+        <createTable tableName="schedule_history">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="schedule_history_pkey"/>
+            </column>
+            <column name="comment" type="VARCHAR(255)"/>
+            <column name="event_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="submit_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-33">
+        <createTable tableName="schedules">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="schedules_pkey"/>
+            </column>
+            <column name="event_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_repeat" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-34">
+        <createTable tableName="street">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="street_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="city_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-35">
+        <createTable tableName="unscheduled_addresses">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="unscheduled_addresses_pkey"/>
+            </column>
+            <column name="address_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="utility_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-36">
+        <createTable tableName="user_address">
+            <column name="user_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="user_address_pkey"/>
+            </column>
+            <column name="address_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="user_address_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-37">
+        <createTable tableName="users">
+            <column name="user_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="stripecustomerid" type="VARCHAR(255)"/>
+            <column name="avatar" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="last_login" type="date"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="role" type="VARCHAR(255)"/>
+            <column name="surname" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-38">
+        <createTable tableName="utilities">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="utilities_pkey"/>
+            </column>
+            <column name="is_active" type="BOOLEAN"/>
+            <column name="identification_code" type="VARCHAR(255)"/>
+            <column name="logo" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="web_site" type="VARCHAR(255)"/>
+            <column name="address_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-39">
+        <createTable tableName="utilities_counters">
+            <column name="utility_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="utilities_counters_pkey"/>
+            </column>
+            <column name="counter_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="utilities_counters_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-40">
+        <createTable tableName="utilities_users">
+            <column name="utility_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-41">
+        <addUniqueConstraint columnNames="user_id" constraintName="uk_668u0bx7e9egiitqc9qb81f2m" tableName="email_token"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-42">
+        <addUniqueConstraint columnNames="email" constraintName="uk_6dotkott2kjsp8vw4d0m25fb7" tableName="users"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-43">
+        <addUniqueConstraint columnNames="user_id" constraintName="uk_8dfu35xwik8uwlrdloci4ok2i" tableName="rating"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-44">
+        <addUniqueConstraint columnNames="counter_id" constraintName="uk_fgmup9aa43riapctj438a4496" tableName="utilities_counters"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-45">
+        <addUniqueConstraint columnNames="user_id" constraintName="uk_ln32yb3toibbu0u8dhy2y53s4" tableName="utilities_users"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-46">
+        <addForeignKeyConstraint baseColumnNames="counter_id" baseTableName="utilities_counters" constraintName="fk1807atc0qcnw4yovwh8d72obe" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="counters" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-47">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="utilities" constraintName="fk1s0qikif4q73e9ymphj9cep4p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-49">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="city" constraintName="fk3rysom5kikyjkau1g51atih4h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-50">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="schedule_history" constraintName="fk3va03xy5c6s0k6a5phv6f92ex" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-51">
+        <addForeignKeyConstraint baseColumnNames="city_id" baseTableName="addresses" constraintName="fk4rstcb49bt870l35ywo8f9e9j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="city" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-52">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="counters" constraintName="fk5flcne9xrqwg51vt6o2mdwe5w" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-53">
+        <addForeignKeyConstraint baseColumnNames="debt_id" baseTableName="counters" constraintName="fk7b2k5pjmx35h699d3bnsrts9p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="debts" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-54">
+        <addForeignKeyConstraint baseColumnNames="current_price_id" baseTableName="new_prices" constraintName="fk7nubylk92k2p7mjr80yjgqg3q" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="price_id" referencedTableName="prices" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-55">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="utilities_users" constraintName="fk8sxifmm14rrcuf3pf0im7ndoe" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-56">
+        <addForeignKeyConstraint baseColumnNames="street_id" baseTableName="addresses" constraintName="fk9chsbxenbwylf5cp6dqya31jf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="street" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-57">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="debts" constraintName="fk9svo04byim1ukeihaoul4oc" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="SET NULL" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-58">
+        <addForeignKeyConstraint baseColumnNames="rater_user_id" baseTableName="rating_list_item" constraintName="fka1ppwb9e47k1sypbswhcusxb3" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-59">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="payments_histories" constraintName="fkafewohdk7acusgg8k2s3r1l7r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-60">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="utilities_counters" constraintName="fkawfg0ahidksvxwd24cvdsr6c0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-61">
+        <addForeignKeyConstraint baseColumnNames="street_id" baseTableName="house" constraintName="fkcj5nnv2nm4dimlo9ov3mt8kjg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="street" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-62">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="schedules" constraintName="fkd4y4xekwahv9boo6lc8gfl3jv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-63">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="counters" constraintName="fkdey6ejyym3w93sarow2sivb4h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-64">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="rating_list_item" constraintName="fkesrcypnm210jbkj07wsnojyll" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-65">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="rating" constraintName="fkf68lgbsbxl310n0jifwpfqgfh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-66">
+        <addForeignKeyConstraint baseColumnNames="city_id" baseTableName="street" constraintName="fkgn6qy2xi8r62dxucjyaq0rupy" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="city" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-67">
+        <addForeignKeyConstraint baseColumnNames="flat_id" baseTableName="addresses" constraintName="fkhq39i05aq7366x18ru89sik51" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="flat" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-68">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="payments_histories" constraintName="fkidj1l09jakrmgpalej5uxnlp2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-69">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="schedules" constraintName="fkj5rgo1khgty8s38nw6ux1usv6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-70">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="prices" constraintName="fkjbbte4nqcj5n2gko518atefsl" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-71">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="schedule_history" constraintName="fkky79w5lor3qgkpqrkraxgftdp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-72">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="unscheduled_addresses" constraintName="fklm0ifg7xay037fq572b6tl1l2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-73">
+        <addForeignKeyConstraint baseColumnNames="utility_id" baseTableName="unscheduled_addresses" constraintName="fklo3kiqrca55n1n0ddc55dy519" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilities" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-74">
+        <addForeignKeyConstraint baseColumnNames="house_id" baseTableName="addresses" constraintName="fkmujmyxuagrc4msdogdce6urgr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="house" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-75">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="addresses" constraintName="fkndvlc3rh41djfy85er0n14exa" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-76">
+        <addForeignKeyConstraint baseColumnNames="house_id" baseTableName="flat" constraintName="fkp650eo25rh3tg2lsqx1x25a7p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="house" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-77">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="utilities_users" constraintName="fkpkyn4k5o7a7c7lbb0lv9ijkq6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-78">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="email_token" constraintName="fkpnii9y1irxajhpost9fjubflx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-79">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="user_address" constraintName="fkpv7y2l6mvly37lngi3doarqhd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="addresses" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-80">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="utilities" constraintName="fkrgy0b1dp0vgr26yruh73a4lac" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Bear (generated)" id="1536074537109-81">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_address" constraintName="fkrmincuqpi8m660j1c57xj7twr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

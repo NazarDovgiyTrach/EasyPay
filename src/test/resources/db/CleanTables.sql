@@ -1,0 +1,45 @@
+SET REFERENTIAL_INTEGRITY FALSE;
+
+TRUNCATE TABLE addresses;
+TRUNCATE TABLE city;
+TRUNCATE TABLE counters;
+TRUNCATE TABLE debts;
+TRUNCATE TABLE email_token;
+TRUNCATE TABLE flat;
+TRUNCATE TABLE house;
+TRUNCATE TABLE new_prices;
+TRUNCATE TABLE payments_histories;
+TRUNCATE TABLE prices;
+TRUNCATE TABLE rating;
+TRUNCATE TABLE rating_list_item;
+TRUNCATE TABLE region;
+TRUNCATE TABLE schedule_history;
+TRUNCATE TABLE schedules;
+TRUNCATE TABLE street;
+TRUNCATE TABLE unscheduled_addresses;
+TRUNCATE TABLE user_address;
+TRUNCATE TABLE users;
+TRUNCATE TABLE utilities;
+TRUNCATE TABLE utilities_counters;
+TRUNCATE TABLE utilities_users;
+
+ALTER SEQUENCE address_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE city_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE counter_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE price_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE debt_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE flat_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE house_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE new_price_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE payments_history_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE rating_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE rating_list_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE region_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE schedules_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE schedules_history_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE city_sequence_item_id_seq RESTART WITH 1;
+ALTER SEQUENCE unscheduled_addresses_id_seq RESTART WITH 1;
+ALTER SEQUENCE user_id_seq RESTART WITH 1;
+ALTER SEQUENCE utility_item_id_seq RESTART WITH 1;
+
+SET REFERENTIAL_INTEGRITY TRUE;

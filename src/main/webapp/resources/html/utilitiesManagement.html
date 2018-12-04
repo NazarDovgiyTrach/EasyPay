@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/resources/images/logo.png" type="image/png"/>
+    <title>EasyPay :: Add utilities</title>
+    <!-- Vendor CSS -->
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="/resources/css/font-awesome.css" rel="stylesheet">
+    <link href="/resources/css/nprogress.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <link href="/resources/css/icheck/flat/green.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-rating.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/resources/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/authorization-stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/user-profile.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/nav-bar.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/cropper.min.css" type="text/css">
+    <link href="/resources/css/pnotify/pnotify.css" rel="stylesheet">
+    <link href="/resources/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+
+
+
+
+
+
+
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="/" class="site_title"><img src="/resources/images/logo.png"> <span>EasyPay</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                </div>
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden" id="user-menu-header">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img alt="" id="user-avatar-header">
+                                <span id="display-name"></span>
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="/profile" data-locale-item="profile">Profile</a></li>
+                                <li><a href="/logout" id="dropdown-menu-logOut"><i class="fa fa-sign-out pull-right"></i></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3 data-locale-item="utilities"></h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-hover schedule">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col" data-locale-item="logotype"></th>
+                                                <th scope="col" data-locale-item="legalname"></th>
+                                                <th scope="col" data-locale-item="address"></th>
+                                                <th scope="col" data-locale-item="identificationCode"></th>
+                                                <th scope="col" data-locale-item="manager"></th>
+
+
+                                            </tr>
+                                            </thead>
+                                            <tbody id="utility_table">
+                                            </tbody>
+                                        </table>
+
+                                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                                                id="add_utility_button" data-target="#add_utility_modal"
+                                                data-locale-item="addUtility">Add utility
+                                        </button>
+                                        <div class="row text-center">
+                                            <ul class="pagination" id="utilities-pagination"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Powered by <a href="https://gitlab.com/nromanen/ch-067">Ch-067</a> © 2018
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- Modal window -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+     id="add_utility_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_label3" data-locale-item="addNewUtility"></h5>
+
+            </div>
+
+            <form id="utilityInfo" method="post" action="/admin/addUtility">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="utility_name" class="" data-locale-item="legalname"></label>
+                        <input class="form-control" id="utility_name" type="text" data-locale-pr="legalname"
+                               placeholder="" required value=""/>
+                        <div class="error-message">
+                            <span id="nameError"></span>
+                        </div>
+                        <input class="form-control" id="utility_active" type="hidden" value="true"/>
+                        <label for="utility_address" class="" data-locale-item="address"></label>
+                        <div class="form-group">
+                            <input id="address_id" type="hidden" value=""/><span id="address_result" style="float: right"></span>
+                            <button type="button" class="btn btn-primary mt-2 " data-toggle="modal"
+                                    data-target="#add_address_modal" id="utility_address" data-locale-item="address">
+                            </button>
+                        </div>
+                        <div class="error-message">
+                            <span id="addressError"></span>
+                        </div>
+                        <label for="utility_identificationCode" class="" data-locale-item="identificationCode"></label>
+                        <input class="form-control" id="utility_identificationCode" type="text"
+                               placeholder="" data-locale-pr="identificationCode" required/>
+                        <div class="error-message">
+                            <span id="identificationCodeError"></span>
+                        </div>
+                        <div>
+                            <label for="managers" data-locale-item="chooseManager"></label>
+                            <select class="form-control" id="managers" required>
+                            </select>
+                            <div class="error-message">
+                                <span id="managerError"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-secondary" href="/admin/utilitiesPage" data-locale-item="close"></a>
+                    <button class="btn btn-primary" id="subb" data-locale-item="addUtility"></button>
+                    <div class="error-message">
+                        <span id="errorMessage"></span>
+                    </div>
+                    <div class="success-message">
+                        <span id="successMessage"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal window -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+     id="update_utility_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_label5" data-locale-item="changeManager"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                </button>
+            </div>
+
+            <form method="post" action="/admin/changeManager">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="utility_name" class="" data-locale-item="updateConfirm"></label>
+                        <input class="form-control" id="change_manager" type="text" placeholder=""
+                               data-locale-pr="confirmChange"/>
+                        <div>
+                            <label for="managers" data-locale-item="chooseManager"></label>
+                            <select class="form-control" id="update_managers" required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-secondary " href="/admin/utilitiesPage"
+                       data-locale-item="close"></a>
+                    <button class="btn btn-primary" id="update_button" data-locale-item="confirm"></button>
+                    <div class="error-message">
+                        <span id="errorMessageUpdate"></span>
+                    </div>
+                    <div class="success-message">
+                        <span id="successMessageUpdate"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal window -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+     id="add_change_logo_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_label6" data-locale-item="addNewImage"></h5>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="modal-body">
+                            <form method="post" action="/admin/addLogo" enctype="multipart/form-data" id="logo_form">
+                                <input type="hidden" name="utility_id" id="utility_id"/>
+                                <div>
+                                    <p data-locale-item="changeAvatar"></p>
+                                    <div class="form-group">
+                                        <label for="image-file" data-locale-item="selectImage"></label>
+                                        <input type="file" id="image-file" class="form-control "
+                                               onchange="initCropper(this.files[0])">
+                                    </div>
+
+                                    <div class="row hidden" id="image-editor">
+                                        <div class="col-sm-4" id="cropper-container">
+                                            <p data-locale-item="selectImage"></p>
+                                            <img src="" id="image-from-file" name="image" class="img-fluid">
+                                        </div>
+                                        <div class="col-lg-offset-1 col-sm-2" id="preview-panel">
+                                            <p data-locale-item="imagePreview"></p>
+                                            <img src="" id="image-cropped-preview" class="img-fluid">
+                                            <div>
+                                                <button type="button" class="btn btn-primary" onclick="cancel()"
+                                                        id="Cancel" data-locale-item="cancel">
+
+                                                </button>
+                                                <button type="button" class="btn btn-primary" onclick="apply()"
+                                                        id="Apply" data-locale-item="apply">
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="image-res">
+                                        <div class="col-sm-2">
+                                            <p data-locale-item="logotype"></p>
+                                            <img id="image-cropped-preview2" class="img-fluid ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-secondary" href="/admin/utilitiesPage"
+                                       data-locale-item="close"></a>
+                                    <button class="btn btn-primary" id="add_image_button"
+                                            data-locale-item="confirm"></button>
+                                    <div class="error-message">
+                                        <span id="errorMessageLogo"></span>
+                                    </div>
+                                    <div class="success-message">
+                                        <span id="successMessageLogo"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal window -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+     id="add_address_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="container">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Address</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input id="autocomplete" placeholder="Enter your address"
+                               onFocus="geolocate()" type="text" class="form-control">
+                        <br>
+                        <div id="address">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="control-label">House</label>
+                                    <input type="text" class="form-control"
+                                           onchange="" id="street_number"
+                                           disabled="true"
+                                           required>
+                                    <span id="street_numberErr" class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Route</label>
+                                    <input type="text" class="form-control" id="route"
+                                           disabled="true" required>
+                                    <span id="routeErr" class="error-message"></span>
+                                </div>
+                                <span id="house"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="control-label">City</label>
+                                    <input type="text" class="form-control field"
+                                           id="locality" disabled="true" required>
+                                    <span id="localityErr" class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">State</label>
+                                    <input type="text" class="form-control"
+                                           id="administrative_area_level_1"
+                                           disabled="true" required>
+                                    <span id="administrative_area_level_1Err" class="error-message"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="control-label">Zip code</label>
+                                    <input type="number" class="form-control"
+                                           id="postal_code" disabled="true" required>
+                                    <span id="postal_codeErr" class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Country</label>
+                                    <input type="text" class="form-control" id="country"
+                                           disabled="true" required>
+                                    <span id="countryErr" class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Office</label>
+                                    <input type="number" class="form-control"
+                                           id="flat_number" disabled="true">
+                                    <span id="flat_numberErr" class="error-message"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="submit" class="btn btn-primary mt-2" disabled="true">
+                            Add address
+                        </button>
+                        <div class="success-message" style="float: right">
+                            <b> <span id="successMessageAddress"></span></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal window -->
+<!-- Modal window -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+     id="update_name_utility_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_label8" data-locale-item="changeLegalName"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                </button>
+            </div>
+
+            <form method="post" action="/admin/changeName">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="utility_name" class="" data-locale-item="updateConfirm"></label>
+                        <input class="form-control" id="change_name_confirm" type="text" placeholder=""
+                               data-locale-pr="confirmChange"/>
+                        <label for="change_name" class="" data-locale-item="enterNewLegalName"></label>
+                        <input class="form-control" id="change_name" type="text" placeholder=""
+                               data-locale-pr="newLegalName"/>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-secondary" href="/admin/utilitiesPage" data-locale-item="close"></a>
+                    <button class="btn btn-primary" id="update_name_button" data-locale-item="confirm"></button>
+                    <div class="error-message">
+                        <span id="errorMessageUpdateName"></span>
+                    </div>
+                    <div class="success-message">
+                        <span id="successMessageUpdateName"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal window -->
+
+
+<!-- Vendor JS -->
+<script src="/resources/js/jquery.js"></script>
+<script src="/resources/js/popper.min.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/fastclick.js"></script>
+<script src="/resources/js/nprogress.js"></script>
+<script src="/resources/js/bootstrap-progressbar.js"></script>
+<script src="/resources/js/icheck.js"></script>
+<script src="/resources/js/pnotify/pnotify.js"></script>
+
+<script src="/resources/js/jquery.twbsPagination.js"></script>
+<script src="/resources/js/bootstrap-select.js"></script>
+<script src="/resources/js/bootstrap-rating.js"></script>
+<!-- Custom JS -->
+<script src="/resources/js/addUtility.js" charset="UTF-8"></script>
+<script src="/resources/js/custom.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0iuB2ngIFX6B6UoAzCCSD8ZiKaz3B0gw&libraries=places&callback=initAutocomplete"-->
+<!--async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrazKmxjU7ANsTEjM9srr-F9mnHEVW01A&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+<script src="/resources/js/cropper.min.js"></script>
+
+<script src="/resources/js/nav-bar.js"></script>
+<!--<script src="/resources/js/i18n.js"></script>-->
+</div>
+</body>
+</html>

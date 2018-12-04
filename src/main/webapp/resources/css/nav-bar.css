@@ -1,0 +1,41 @@
+.fa-fix{
+    line-height: 32px;
+}
+
+/*
+#header-li ul li {
+    background-color: #1b7e5a;
+    max-width: 60px;
+}
+
+
+#header-li ul li  a{
+    max-width: 60px;
+    background-color: #C09853;
+}
+*/
+
+@media (min-width: 50px) {
+    #language-dropdown {
+        position: relative;
+    }
+}
+
+#language-dropdown .dropdown-menu li {
+     width: auto;
+}
+#language-dropdown .dropdown-menu {
+    min-width: 50px;
+}
+#language-dropdown .open .dropdown-menu {
+    left: 0;
+}
+
+#language-dropdown .dropdown-menu {
+    width: 100%;
+}
+#language-dropdown .dropdown-menu li{
+    width: 100%;
+}
+
+

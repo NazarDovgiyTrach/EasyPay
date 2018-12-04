@@ -1,0 +1,21 @@
+.centered-reg-aut-form{
+    margin-top: 150px;
+}
+.forgot-password-form {
+    padding-top: 150px;
+}
+.error-message{
+    color: red;
+}
+.success-message{
+    color: green;
+}
+
+#message-modal .text-center{
+    text-align: center !important;
+
+}
+
+#message-modal .modal-header{
+    color: #000000 !important;
+}

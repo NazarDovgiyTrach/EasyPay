@@ -1,0 +1,47 @@
+button {
+	width: 20rem;
+}
+
+#price_div, #future_price_div {
+	display: none;
+	width: 100%;
+}
+
+label {
+    font-weight: bold;
+}
+
+.text-info::before {
+    content: "* ";
+    color: red;
+}
+
+#price_form_btn, #future_price_form_btn {
+    display: none;
+}
+
+.text-danger {
+    color: red;
+}
+
+#tabs {
+    display: none;
+}
+
+#no_price_history {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-size: 24px;
+    color: rgba(120,118,122,0.53);
+}
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.choose-chart-dates {
+    width: 50%;
+}

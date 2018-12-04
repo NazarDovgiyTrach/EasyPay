@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/resources/images/logo.png" type="image/png"/>
+    <title>EasyPay :: Schedule</title>
+    <!-- Vendor CSS -->
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="/resources/css/font-awesome.css" rel="stylesheet">
+    <link href="/resources/css/nprogress.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/resources/css/icheck/flat/green.css" rel="stylesheet">
+    <!-- Notife CSS -->
+    <link href="/resources/css/pnotify/pnotify.css" rel="stylesheet">
+    <link href="/resources/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+    <!-- Calendar -->
+    <link href="/resources/css/fullcalendar.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/resources/css/custom.css" rel="stylesheet">
+    <link href="/resources/css/nav-bar.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="/" class="site_title"><img src="/resources/images/logo.png"> <span>EasyPay</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                </div>
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden" id="user-menu-header">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img alt="" id="user-avatar-header">
+                                <span id="display-name"></span>
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="/profile" data-locale-item="profile">Profile</a></li>
+                                <li><a href="/logout" id="dropdown-menu-logOut"><i class="fa fa-sign-out pull-right"></i></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3 data-locale-item="schedule">Schedule</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="inspector-calendar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Powered by <a href="https://gitlab.com/nromanen/ch-067">Ch-067</a> &#169; 2018
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- Modal window -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="status_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&#215;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel" data-locale-item="scheduleSetVisitStatus">Set visit status</h4>
+            </div>
+            <div class="modal-body">
+                <form id="status-form">
+                    <label for="status" data-locale-item="scheduleChooseStatus">Choose status:</label>
+                    <select id="status" class="form-control selectpicker" data-style="btn-success" name="status">
+                        <option value="DONE" data-locale-item="scheduleStatusDone">Done</option>
+                        <option value="CANCELED" data-locale-item="scheduleStatusCanceled">Canceled</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="comment" data-locale-item="scheduleComment">Comment:</label>
+                    <textarea id="comment" required="required" class="form-control" name="comment"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-locale-item="close">Close</button>
+                <button type="button" class="btn btn-primary js-apply" data-locale-item="apply">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="map-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&#215;</span>
+                </button>
+                <h4 class="modal-title"><span data-locale-item="scheduleModalRoute">Route for date</span> <span class="js-date"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div id="route-map">My map will go here</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal window -->
+<!-- Vendor JS -->
+<script src="/resources/js/jquery.js"></script>
+<script src="/resources/js/popper.min.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/fastclick.js"></script>
+<script src="/resources/js/nprogress.js"></script>
+<script src="/resources/js/bootstrap-progressbar.js"></script>
+<script src="/resources/js/bootstrap-select.js"></script>
+<script src="/resources/js/icheck.js"></script>
+<script src="/resources/js/moment.js"></script>
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFRmfTbnFnFteV-lbTZPpCqw2aU2Kr9Ok"></script>
+<!-- Notife JS -->
+<script src="/resources/js/pnotify/pnotify.js"></script>
+<!-- Calendar -->
+<script src="/resources/js/fullcalendar.min.js"></script>
+<script src="/resources/js/fullcalendar-locale/ua.js"></script>
+<!-- Localization -->
+<script src="/resources/js/i18n.js"></script>
+<!-- Custom JS -->
+<script src="/resources/js/custom.js"></script>
+<script src="/resources/js/schedule.js"></script>
+<script src="/resources/js/inspector-schedule-list.js"></script>
+<script src="/resources/js/nav-bar.js"></script>
+<script src="/resources/js/route.js"></script>
+
+</body>
+
+</html>
